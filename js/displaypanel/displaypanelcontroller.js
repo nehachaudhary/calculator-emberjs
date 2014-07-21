@@ -1,4 +1,4 @@
-CalculatorApp.DisplayPanelController = Em.Controller.extend({
+CalculatorApp.DisplayController = Em.Controller.extend({
     init : function () {
         // pass options in create method
         this._super();

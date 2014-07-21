@@ -5,22 +5,26 @@
 </head>
 <body>
 
+<script type="text/x-handlebars">
+    {{outlet}}
+</script>
+
 <script type="text/x-handlebars" data-template-name="calculator">
     <div class="theme-calculator">
         <div class="display-container">
-            {{view CalculatorApp.DisplayPanelView}}
+            {{view CalculatorApp.DisplayView}}
         </div>
         <div class="button-container">
-            {{view CalculatorApp.ButtonPanelView}}
+            {{view CalculatorApp.ButtonView}}
         </div>
     </div>
 </script>
 
-<script type="text/x-handlebars" data-template-name="displaypanel">
-    <input type="text" class="js-display-band theme-display-band" readonly>
+<script type="text/x-handlebars" data-template-name="display">
+    <input type="text" class="js-display-band theme-display-band" readonly="readonly" value={{view.defaultValue}}>
 </script>
 
-<script type="text/x-handlebars" data-template-name="buttonpanel">
+<script type="text/x-handlebars" data-template-name="button">
     {{#each numbers}}
         <input type="button" class="js-input-key theme-button" value={{this}}>
     {{/each}}

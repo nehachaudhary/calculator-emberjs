@@ -1,5 +1,5 @@
 CalculatorApp.CalculatorController =  Ember.Controller.extend({
-    needs : ['displaypanel', 'buttonpanel'],  // Calculator has dependency on Display and button
+    needs : ['display', 'button'],  // Calculator has dependency on Display and button
     init : function () {
         this._super();
 
@@ -12,14 +12,14 @@ CalculatorApp.CalculatorController =  Ember.Controller.extend({
     },
     actions : {
         addEventListener : function () {
-            var buttonPanelController = this.get('controller.buttonpanel');
+            var buttonPanelController = this.get('controller.button');
             buttonPanelController.addEventListener('numbersOperatorsClicked', this.setValue, this);
             buttonPanelController.addEventListener('answerKeyClicked', this.calculate, this);
             buttonPanelController.addEventListener('clearKeyClicked', this.resetDisplay, this);
             buttonPanelController.addEventListener('backKeyClicked', this.editValue, this);
         },
         resetDisplay : function(){
-            var displayPanelController = this.get('controller.displaypanel');
+            var displayPanelController = this.get('controller.display');
             var calculatorModel = this.get('model');
             displayPanelController.send('setValue',calculatorModel.get('defaultValue'));
         },
@@ -27,7 +27,7 @@ CalculatorApp.CalculatorController =  Ember.Controller.extend({
             var calculatorModel = this.get('model');
             var value = calculatorModel.get('value');
 
-            var displayPanelController = this.get('controller.displaypanel');
+            var displayPanelController = this.get('controller.display');
 
             if(value){
                 var dataToEvaluate = value;
@@ -95,7 +95,7 @@ CalculatorApp.CalculatorController =  Ember.Controller.extend({
                 }
             }
 
-            var displayPanelController = this.get('controller.displaypanel');
+            var displayPanelController = this.get('controller.display');
             displayPanelController.send('setValue',calculatorModel.get('value'));
         },
         editValue : function(){
@@ -107,7 +107,7 @@ CalculatorApp.CalculatorController =  Ember.Controller.extend({
                 value = 0;
             }
 
-            var displayPanelController = this.get('controller.displaypanel');
+            var displayPanelController = this.get('controller.display');
             displayPanelController.send('setValue',value);
         }
     }

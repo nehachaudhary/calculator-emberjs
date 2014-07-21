@@ -1,8 +1,9 @@
-CalculatorApp.DisplayPanelView = Em.View.extend({
-    templateName : 'displaypanel',
+CalculatorApp.DisplayView = Em.View.extend({
+    templateName : 'display',
+    defaultValue : '0',
     init : function () {
         this._super();
-        this.set('controller', CalculatorApp.DisplayPanelController);
+        this.set('controller', CalculatorApp.DisplayController);
     },
     didInsertElement : function(){
         var displayController = this.get('controller');
