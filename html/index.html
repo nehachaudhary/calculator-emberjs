@@ -1,15 +1,55 @@
 <!doctype html>
 <html>
 <head>
-
-
+<link type="text/css" href="./../css/main.css">
 </head>
 <body>
+
+<script type="text/x-handlebars" data-template-name="calculator">
+    <div class="theme-calculator">
+        <div class="display-container">
+            {{view CalculatorApp.DisplayPanelView}}
+        </div>
+        <div class="button-container">
+            {{view CalculatorApp.ButtonPanelView}}
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="displaypanel">
+    <input type="text" class="js-display-band theme-display-band" readonly>
+</script>
+
+<script type="text/x-handlebars" data-template-name="buttonpanel">
+    {{#each numbers}}
+        <input type="button" class="js-input-key theme-button" value={{this}}>
+    {{/each}}
+    {{#each operators}}
+        <input type="button" class="js-input-key theme-button" value={{this}}>
+    {{/each}}
+    {{#each special}}
+        <input type="button" class="js-{{this}}-key theme-button" value={{this}}>
+    {{/each}}
+</script>
 
 <script type="application/javascript" src="../js/libs/jquery-1.10.2.min.js"></script>
 <script type="application/javascript" src="../js/libs/handlebars-1.0.0.js"></script>
 <script type="application/javascript" src="../js/libs/ember.js"></script>
 <script type="application/javascript" src="../js/libs/ember-data.js"></script>
-</body>
 
+<script type="application/javascript" src="../js/app.js"></script>
+
+<script type="application/javascript" src="../js/calculator/calculatormodel.js"></script>
+<script type="application/javascript" src="../js/calculator/calculatorview.js"></script>
+<script type="application/javascript" src="../js/calculator/calculatorcontroller.js"></script>
+
+<script type="application/javascript" src="../js/displaypanel/displaypanelmodel.js"></script>
+<script type="application/javascript" src="../js/displaypanel/displaypanelview.js"></script>
+<script type="application/javascript" src="../js/displaypanel/displaypanelcontroller.js"></script>
+
+<script type="application/javascript" src="../js/buttonpanel/buttonpanelmodel.js"></script>
+<script type="application/javascript" src="../js/buttonpanel/buttonpanelview.js"></script>
+<script type="application/javascript" src="../js/buttonpanel/buttonpanelcontroller.js"></script>
+
+</body>
 </html>
