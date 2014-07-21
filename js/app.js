@@ -1,0 +1,1 @@
+window.CalculatorApp = Em.Object.create();
