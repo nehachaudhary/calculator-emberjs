@@ -1,8 +1,8 @@
-CalculatorApp.ButtonView = Em.View.extend({
+App.ButtonView = Em.View.extend({
     templateName : 'button',
     init : function () {
         this._super();
-        this.set('controller', CalculatorApp.ButtonController);
+        this.set('controller', App.ButtonController);
     },
     addEventListener : function (eventType, handler, context) {
         function onClickHandler(event) {

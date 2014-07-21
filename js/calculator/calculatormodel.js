@@ -1,6 +1,6 @@
-CalculatorApp.CalculatorModel = DS.Model.extend({
-    defaultValue : DS.attr('number'),
-    type : DS.attr('string'),
+App = Em.Object.create();
+
+App.CalculatorModel = Em.Object.create({
     value : 0,
     resetValue : function () {
         this.value = 0;
