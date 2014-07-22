@@ -40806,6 +40806,7 @@ var Application = Ember.Application = Ember.Namespace.extend(Ember.DeferredMixin
   _readinessDeferrals: 1,
 
   init: function() {
+      debugger;
     if (!this.$) { this.$ = Ember.$; }
     this.__container__ = this.buildContainer();
 
